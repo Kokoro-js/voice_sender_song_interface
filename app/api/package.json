@@ -1,0 +1,9 @@
+{
+  "name": "api",
+  "main": "src/index.ts",
+  "scripts": {},
+  "dependencies": {
+    "@protobuf-ts/runtime": "^2.9.4"
+  },
+  "devDependencies": {}
+}

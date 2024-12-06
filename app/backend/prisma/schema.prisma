@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  userId   String     @id
+  instance Instance[]
+}
+
+model Bot {
+  botId    String     @id
+  token    String
+  instance Instance[]
+}
+
+model MusicInfo {
+  platform  String
+  musicId   String
+  title     String
+  artist    String
+  cover     String?
+  cachedUrl String?
+  updateAt  DateTime @updatedAt
+
+  @@id([musicId, platform])
+}
+
+model Instance {
+  instanceId String    @id @default(nanoid(8))
+  channelId  String
+  user       User      @relation(fields: [instanceId], references: [userId])
+  bot        Bot       @relation(fields: [instanceId], references: [botId])
+  startAt    DateTime  @default(now())
+  endAt      DateTime?
+  running    Boolean   @default(true)
+
+  @@index([running])
+}
+
+model LoginInfo {
+  id   Int    @id @default(autoincrement())
+  type String
+  data String
+}

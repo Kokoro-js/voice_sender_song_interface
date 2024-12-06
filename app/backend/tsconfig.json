@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "strict": true,
+    "jsx": "react-jsx",
+    "target": "es6",
+    "module": "es6",
+    "moduleResolution": "Node",
+    "jsxImportSource": "hono/jsx",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

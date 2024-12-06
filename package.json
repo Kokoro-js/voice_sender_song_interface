@@ -1,0 +1,9 @@
+{
+  "name": "my-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["app/*"],
+  "devDependencies": {
+    "prettier": "^2.0.0"
+  }
+}
